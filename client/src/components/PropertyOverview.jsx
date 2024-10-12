@@ -26,7 +26,7 @@ const PropertyOverview = ({ data }) => {
     selectedRows.length > 0 && selectedRows.length < data.length;
 
   useEffect(() => {
-    const checkbox = document.getElementById("select-all");
+    const checkbox = document.getElementById("all-property");
     if (checkbox) {
       checkbox.indeterminate = isIndeterminate;
     }
@@ -66,7 +66,7 @@ const PropertyOverview = ({ data }) => {
             <tr className="">
             <th className="p-2 text-left">
                 <input
-                  id="select-all"
+                  id="all-property"
                   type="checkbox"
                   onChange={handleSelectAll}
                   checked={selectedRows.length === data.length}

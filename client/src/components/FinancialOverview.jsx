@@ -26,7 +26,7 @@ const FinancialOverview = ({ data }) => {
     selectedRows.length > 0 && selectedRows.length < data.length;
 
   useEffect(() => {
-    const checkbox = document.getElementById("select-all");
+    const checkbox = document.getElementById("all-finance");
     if (checkbox) {
       checkbox.indeterminate = isIndeterminate;
     }
@@ -66,7 +66,7 @@ const FinancialOverview = ({ data }) => {
             <tr>
               <th className="p-2 text-left">
                 <input
-                  id="select-all"
+                  id="all-finance"
                   type="checkbox"
                   onChange={handleSelectAll}
                   checked={selectedRows.length === data.length}
