@@ -14,9 +14,28 @@ const PropertyOverview = ({ data }) => {
     );
   };
 
+  const handleSelectAll = () => {
+    if (selectedRows.length === data.length) {
+      setSelectedRows([]); 
+    } else {
+      setSelectedRows(data.map((_, index) => index)); 
+    }
+  };
+
+  const isIndeterminate =
+    selectedRows.length > 0 && selectedRows.length < data.length;
+
+  useEffect(() => {
+    const checkbox = document.getElementById("select-all");
+    if (checkbox) {
+      checkbox.indeterminate = isIndeterminate;
+    }
+  }, [isIndeterminate]);
+
+
   return (
     <div className=" bg-white py-4 rounded-lg ">
-      {/* Header */}
+
       <div className="flex px-4 justify-between items-center mb-4">
         <div className="">
         <h2 className="text-xl flex font-bold text-blue-900">
@@ -31,26 +50,27 @@ const PropertyOverview = ({ data }) => {
         </div>
         <div className="flex space-x-4">
           <button className="flex items-center space-x-1 px-4 py-2  text-blue-900 rounded-md hover:bg-gray-200">
-            <span><RiDeleteBin6Line /></span> {/* Placeholder for delete icon */}
+            <span><RiDeleteBin6Line /></span> 
             <span>Delete</span>
           </button>
           <button className="flex items-center space-x-1 px-4 py-2 bg-[#001B79] text-white rounded-md hover:bg-blue-800">
-            <span><FaPlus/></span> {/* Placeholder for add new icon */}
+            <span><FaPlus/></span> 
             <span>Add new</span>
           </button>
         </div>
       </div>
 
-      {/* Subtitle */}
-      
-
-      {/* Table */}
       <div className="overflow-x-auto px-4">
         <table className="min-w-full table-auto">
           <thead className="bg-gray-50">
             <tr className="">
-              <th className="p-2 text-left">
-                <input type="checkbox" />
+            <th className="p-2 text-left">
+                <input
+                  id="select-all"
+                  type="checkbox"
+                  onChange={handleSelectAll}
+                  checked={selectedRows.length === data.length}
+                />
               </th>
               <th className=" text-left text-blue-900">Owner Name</th>
               <th className=" text-left text-blue-900">Property Name</th>
@@ -65,8 +85,9 @@ const PropertyOverview = ({ data }) => {
             {data.map((item, index) => (
               <tr
                 key={index}
-                className={`hover:bg-gray-50 text-zinc-500 `}
-              >
+                className={`hover:bg-gray-50 text-zinc-500 ${
+                  selectedRows.includes(index) ? "bg-blue-50" : ""
+                }`}              >
                 <td className="p-2">
                   <input
                     type="checkbox"

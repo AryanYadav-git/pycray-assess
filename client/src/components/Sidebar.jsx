@@ -55,7 +55,6 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
         </nav>
       </aside>
 
-      {/* Overlay for sidebar on mobile */}
       {isSidebarOpen && (
         <div
           className="fixed inset-0 bg-black opacity-50 z-30 md:hidden"

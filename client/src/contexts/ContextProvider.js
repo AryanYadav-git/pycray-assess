@@ -47,24 +47,7 @@ export const ContextProvider = ({ children }) => {
             occupancyRate: '85%',
             lastMaintenanceDate: '2024-09-11',
         },
-        {
-            ownerName: 'Owner name',
-            propertyName: 'Greenview Appartment',
-            totalUnits: 50,
-            filledUnits:42,
-            vacantUnits: 8,
-            occupancyRate: '85%',
-            lastMaintenanceDate: '2024-09-11',
-        },
-        {
-            ownerName: 'Owner name',
-            propertyName: 'Greenview Appartment',
-            totalUnits: 50,
-            filledUnits:42,
-            vacantUnits: 8,
-            occupancyRate: '85%',
-            lastMaintenanceDate: '2024-09-11',
-        },
+        
     ])
 
     const setMode = (e) => {

@@ -4,7 +4,6 @@ import React from "react";
 const Header = ({ toggleSidebar }) => {
   return (
     <header className="flex justify-between items-center mb-6">
-      {/* Hamburger Button for Mobile */}
       <div className="flex gap-6">
         <button
           className="text-gray-500 focus:outline-none md:hidden"
