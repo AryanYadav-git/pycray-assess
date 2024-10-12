@@ -13,7 +13,7 @@ const App = () => {
       console.log(url);
       const res = await axios.get(`${process.env.REACT_APP_BASE_URL}/finance/`);
       if(res.data.data){
-        // setFinanceData(res.data.data);
+        setFinanceData(res.data.data);
       }
     } catch (error) {
       console.log(error);
@@ -24,7 +24,7 @@ const App = () => {
     try {
       const res = await axios.get(`${process.env.REACT_APP_BASE_URL}/property`);
       if(res.data.data){
-        // setPropertyData(res.data.data);
+        setPropertyData(res.data.data);
       }
     } catch (error) {
       console.log(error);
